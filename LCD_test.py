@@ -46,8 +46,8 @@ def lcd_message(message, line):
 # LCD 초기화 및 메시지 출력
 try:
     lcd_init()
-    lcd_message("Hello, LCD!", 1)  # 첫 번째 줄 출력
-    lcd_message("Line 2 Test", 2)  # 두 번째 줄 출력
+    lcd_message("Welcome!", 1)  # 첫 번째 줄 출력
+    lcd_message("You are my mom", 2)  # 두 번째 줄 출력
     while True:
         time.sleep(1)  # 무한 루프로 유지
 except KeyboardInterrupt:

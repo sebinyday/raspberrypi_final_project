@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Dataset Collection</title>
+</head>
+<body>
+    <h1>Face Dataset Collection</h1>
+    <h3>얼굴 이미지를 30장 수집하고 있습니다.</h3>
+    <div>
+        <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    </div>
+    <p>상태: <span id="status">수집 중...</span></p>
+
+    <script>
+        // 일정 간격으로 상태 갱신
+        setInterval(function() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("status").textContent = data.status;
+                });
+        }, 1000);
+    </script>
+</body>
+</html>

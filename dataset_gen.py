@@ -19,8 +19,8 @@ if not os.path.exists(dataset_folder):
     os.makedirs(dataset_folder)
 
 # 얼굴 이미지 저장 카운트
-face_id = "2"  # 사용자 ID
-name = "mom"  # 사용자 ID
+face_id = "1"  # 사용자 ID
+name = "sebin"  # 사용자 이름
 count = 0
 capturing = True  # 데이터 수집 여부를 결정하는 변수
 
@@ -50,7 +50,7 @@ def gen_frames():
                     # 마지막 촬영 시간 갱신
                     last_capture_time = time.time()
 
-                    if count >= 30:  # 얼굴 이미지를 30장 찍으면 종료
+                    if count >= 100:  # 얼굴 이미지를 30장 찍으면 종료
                         capturing = False
                         break
 

@@ -1,13 +1,11 @@
 import RPi.GPIO as GPIO
 import time
 
-# 부저 핀 설정
 BUZZER_PIN = 25
 
-# GPIO 설정
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(BUZZER_PIN, GPIO.OUT)
-
+def setup_buzzer_pin():
+    GPIO.setup(BUZZER_PIN, GPIO.OUT)
+    
 # 부저로 소리 내기 함수
 def sound_buzzer(frequency, duration):
     pwm = GPIO.PWM(BUZZER_PIN, frequency)
@@ -33,15 +31,15 @@ def print_sound_false():
     time.sleep(1)
 
 # 메인 코드 예시
-try:
-    while True:
-        # 정답일 때
-        print("정답입니다!")
-        print_sound_true()  # 정답 소리 출력
+# try:
+#     while True:
+#         # 정답일 때
+#         print("정답입니다!")
+#         print_sound_true()  # 정답 소리 출력
 
-        # 오답일 때
-        print("오답입니다!")
-        print_sound_false()  # 오답 소리 출력
+#         # 오답일 때
+#         print("오답입니다!")
+#         print_sound_false()  # 오답 소리 출력
 
-except KeyboardInterrupt:
-    GPIO.cleanup()  # 종료 시 GPIO 정리
+# except KeyboardInterrupt:
+#     GPIO.cleanup()  # 종료 시 GPIO 정리

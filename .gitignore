@@ -1,5 +1,5 @@
 # Ignore everything in the dataset directory
 dataset/*
-
+test/*
 # But do not ignore the dataset directory itself
 !dataset/

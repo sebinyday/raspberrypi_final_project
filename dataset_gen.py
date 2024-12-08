@@ -37,7 +37,7 @@ def gen_frames():
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5, minSize=(100, 100))
 
-            # 얼굴이 감지되고, 마지막 촬영 시간 이후 2초가 지났으면 사진 촬영
+            # 얼굴이 감지되고, 마지막 촬영 시간 이후 0.1초가 지났으면 사진 촬영
             if len(faces) > 0 and time.time() - last_capture_time >= 0.1:
                 for (x, y, w, h) in faces:
                     cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)  # 얼굴에 박스 그리기
@@ -50,7 +50,7 @@ def gen_frames():
                     # 마지막 촬영 시간 갱신
                     last_capture_time = time.time()
 
-                    if count >= 100:  # 얼굴 이미지를 30장 찍으면 종료
+                    if count >= 100:  # 얼굴 이미지를 100장 찍으면 종료
                         capturing = False
                         break
 
@@ -60,7 +60,7 @@ def gen_frames():
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
     # 종료 후 추가 처리
-    print("30장 촬영 완료! 데이터 수집을 종료합니다.")
+    print("100장 촬영 완료! 데이터 수집을 종료합니다.")
     capture.release()
     cv2.destroyAllWindows()
 

@@ -13,7 +13,7 @@ recognizer.read('trainer/trainer.yml')
 # 얼굴 인식용 Haar Cascade 로드
 faceCascade = cv2.CascadeClassifier('../haarcascade_frontalface_default.xml')
 
-# ID와 이름 설정 (예시)
+# ID
 names = ["?",'sebin','mom','dad']
 
 # 웹캠 열기
@@ -25,8 +25,7 @@ cam.set(4, 480)  # 비디오 세로 크기 설정
 def gen_frames():
     while True:
         ret, img = cam.read()
-        #img = cv2.flip(img, -1)  # 이미지 반전
-
+        
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces = faceCascade.detectMultiScale(
             gray,
